@@ -1,0 +1,58 @@
+body {
+  padding: 20px min(200px, 20vw) 0 20px;
+  font-size: 20px;
+}
+
+.description {
+  display: grid;
+  grid-template-areas:
+    "text example"
+    "form qr";
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+  width: clamp(50vw, 1200px, 50vw);
+  margin: 0 auto;
+  padding: 20px;
+  background-color: aliceblue;
+}
+.description .text {
+  grid-area: text;
+  margin: 0;
+}
+
+.description span.key {
+  display: inline-block;
+  color: darkolivegreen;
+}
+
+img.example {
+  grid-area: example;
+  max-width: 100%;
+  width: auto;
+  height: 100%;
+  aspect-ratio: 1/1.2;
+}
+
+img.qr {
+  grid-area: qr;
+  max-width: 100%;
+  width: auto;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+form {
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+form input {
+  max-width: 400px;
+  font-size: 25px;
+}
+
+form input + input {
+  margin-top: 15px;
+}
