@@ -1,5 +1,10 @@
+html * {
+  box-sizing: border-box;
+}
+
 body {
-  padding: 20px min(200px, 20vw) 0 20px;
+  margin: 0;
+  padding: 0;
   font-size: 20px;
 }
 
@@ -8,9 +13,9 @@ body {
   grid-template-areas:
     "text example"
     "form qr";
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1.5fr;
   gap: 10px;
-  width: clamp(50vw, 1200px, 50vw);
+  width: clamp(clamp(350px, 100%, 700px), 50vw, 1200px);
   margin: 0 auto;
   padding: 20px;
   background-color: aliceblue;
@@ -25,19 +30,20 @@ body {
   color: darkolivegreen;
 }
 
-img.example {
-  grid-area: example;
+img {
   max-width: 100%;
   width: auto;
   height: 100%;
+  margin: auto;
+}
+
+img.example {
+  grid-area: example;
   aspect-ratio: 1/1.2;
 }
 
 img.qr {
   grid-area: qr;
-  max-width: 100%;
-  width: auto;
-  height: 100%;
   aspect-ratio: 1/1;
 }
 
