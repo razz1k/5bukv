@@ -2,7 +2,7 @@ let form = document.querySelector("form"),
   dict,
   prevResult;
 
-fetch('/russian_nouns_5dig.txt')
+fetch('./russian_nouns_5dig.txt')
   .then(response => response.text())
   .then((data) => {
     data = data.replace(/\r/g, "");
