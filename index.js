@@ -75,12 +75,13 @@ function used(input) {
       str = str.split(",");
       const letter = str[0];
       const lettersBefore = str[1] - 1;
-      const pattern = new RegExp(`^[^-]{${lettersBefore}}${letter}`, "gi");
+      const patternNeg = new RegExp(`^[^-]{${lettersBefore}}${letter}`, "gi");
+      const patternPos = new RegExp(`${letter}`, "gi");
 
-      result = result? result : word.match(pattern);
+      result = word.match(patternPos) && !word.match(patternNeg);
     });
 
-    return !result;
+    return result;
   });
   console.log(prevResult);
 }
