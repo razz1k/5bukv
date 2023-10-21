@@ -48,16 +48,12 @@ function parseInputs(ev) {
 }
 
 function missed(input) {
-  inputToArr = [...input.value];
-  prevResult = prevResult.filter(word => {
-    let result;
-
-    inputToArr.forEach(letter => {
-      result = result ? result : word.includes(letter);
+  if (input.value) {
+    const pattern = new RegExp(`[^-${input.value}]`, "gi");
+    prevResult = prevResult.filter(word => {
+      return word.match(pattern);
     });
-
-    return !result;
-  });
+  }
   console.log(prevResult);
 }
 
