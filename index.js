@@ -48,10 +48,10 @@ function parseInputs(ev) {
 }
 
 function missed(input) {
+  const pattern = new RegExp(`[${input.value}]`, "gi");
   if (input.value) {
-    const pattern = new RegExp(`[^-${input.value}]`, "gi");
     prevResult = prevResult.filter(word => {
-      return word.match(pattern);
+      return !word.match(pattern);
     });
   }
   console.log(prevResult);
