@@ -58,7 +58,7 @@ function missed(input) {
 }
 
 function used(input) {
-  inputToArr = input.value.replace(/;\s*$/gi, '');
+  let inputToArr = input.value.replace(/;\s*$/gi, '');
   if (!inputToArr.match(/[а-я],\d/gi)) {
     return;
   }
@@ -67,15 +67,17 @@ function used(input) {
   prevResult = prevResult.filter((word) => {
     let result;
 
-    inputToArr.forEach(str => {
-      str = str.split(",");
+    for (let index in inputToArr) {
+      const str = inputToArr[index].split(",");
       const letter = str[0];
       const lettersBefore = str[1] - 1;
       const patternNeg = new RegExp(`^[^-]{${lettersBefore}}${letter}`, "gi");
       const patternPos = new RegExp(`${letter}`, "gi");
 
       result = word.match(patternPos) && !word.match(patternNeg);
-    });
+
+      if (!result) break;
+    }
 
     return result;
   });
@@ -83,7 +85,7 @@ function used(input) {
 }
 
 function hit(input) {
-  inputToArr = input.value.replace(/;\s*$/gi, '');
+  let inputToArr = input.value.replace(/;\s*$/gi, '');
   if (!inputToArr.match(/[а-я],\d/gi)) {
     return;
   }
@@ -106,7 +108,7 @@ function hit(input) {
   console.log(prevResult);
 }
 
-function debounce(func, timeout = 500) {
+function debounce(func, timeout = 1500) {
   let timer;
 
   return debounceEvent = (...args) => {
