@@ -1,44 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>5 букв</title>
   <link rel="stylesheet" href="./base.css">
 </head>
 <body>
-<div class="description">
-  <form action="#">
-    <input id="missed" type="text" placeholder="отсутствующие буквы">
-    <input id="used" type="text" placeholder="присутствующие буквы">
-    <input id="hit" type="text" placeholder="попадание">
-  </form>
-  <p class="text">
-    <a href="https://5bukv.tinkoff.ru/">перейти к игре, либо отсканируй QR</a>
-    <br>
-    <br>
-    Введи в следующие поля полученные данные из предыдущих попыток.
-    <br>
-    <br>
-    <b>Вот пример:</b>
-    <br>
-    <br>
-    <span class="key">отсутствующие</span>:
-    <br>
-    <code class="value">фаусенр</code>
-    <br>
-    <br>
-    <span class="key">присутствующие</span>:
-    <br>
-    <code class="value">т,1;в,3;о,4</code>
-    <br>
-    <br>
-    <span class="key">попадание</span>:
-    <br>
-    <code class="value">м,1;о,2;в,5</code>
-  </p>
-  <img class="example" src="./example.jpg">
-  <img class="qr" src="./qr.jpg">
+<div class="page home">
+  <header class="home-header">
+    <h1 class="home-title">5 БУКВ</h1>
+    <p class="home-subtitle">Помощник для поиска слова в игре</p>
+  </header>
+
+  <nav class="home-nav">
+    <a class="home-link home-link--primary" href="./solver.html">Открыть поиск слова</a>
+    <div class="home-game">
+      <a class="home-link" href="https://5bukv.tinkoff.ru/">Перейти к игре</a>
+      <a class="home-qr" href="https://5bukv.tinkoff.ru/" aria-label="Перейти к игре по QR-коду">
+        <img class="home-qr-image" src="./game-qr.svg" alt="" width="168" height="168">
+        <span class="home-qr-caption">или отсканируй QR</span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="home-section">
+    <h2>Как пользоваться</h2>
+    <ol class="home-steps">
+      <li>Для первых двух попыток введите слова <strong>оникс</strong> и <strong>талер</strong> — они покрывают 10 самых частых букв.</li>
+      <li>Сыграйте попытку в <a href="https://5bukv.tinkoff.ru/">5 букв</a>.</li>
+      <li>Откройте страницу <a href="./solver.html">поиска слова</a>.</li>
+      <li>Введите слово из попытки — оно появится под полем ввода.</li>
+      <li>Нажимайте на каждую букву и выбирайте её тип:
+        <ul class="legend">
+          <li><span class="legend-tile tile--miss">А</span> серая — буквы нет в слове</li>
+          <li><span class="legend-tile tile--present">Б</span> белая — буква есть, но не на этом месте</li>
+          <li><span class="legend-tile tile--hit">В</span> жёлтая — буква на правильном месте</li>
+        </ul>
+      </li>
+      <li>Повторите для следующих попыток — список кандидатов обновится автоматически.</li>
+    </ol>
+  </section>
 </div>
-<script src="./index.js"></script>
 </body>
 </html>

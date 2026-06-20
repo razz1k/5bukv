@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Поиск слова — 5 букв</title>
+  <link rel="stylesheet" href="./base.css">
+</head>
+<body>
+<div class="page solver">
+  <header class="solver-header">
+    <a class="back-link" href="./index.html">На главную</a>
+    <h1 class="solver-title">Поиск слова</h1>
+  </header>
+
+  <p id="status" class="status" data-error="Не удалось загрузить словарь.">Загрузка словаря…</p>
+
+  <div class="solver-input">
+    <label for="word-input">Введите слово из попытки</label>
+    <input
+      id="word-input"
+      type="text"
+      maxlength="5"
+      placeholder="апекс"
+      autocomplete="off"
+      inputmode="text"
+      disabled
+    >
+  </div>
+
+  <p class="hint">Нажмите на буквы, чтобы выбрать тип: серая → белая → жёлтая</p>
+
+  <div id="attempts" class="attempts"></div>
+
+  <button type="button" id="reset">Сбросить</button>
+
+  <section id="results" class="results" hidden>
+    <p class="results-header">
+      Кандидаты: <span id="results-count">0</span>
+    </p>
+    <ul id="results-list" class="results-list" data-empty="Совпадений нет"></ul>
+  </section>
+</div>
+<script src="./filter.js"></script>
+<script src="./confetti.js"></script>
+<script src="./solver.js"></script>
+</body>
+</html>
