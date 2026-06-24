@@ -139,7 +139,7 @@ function constraintsFromAttempts(attempts) {
         used.push({ letter, pos });
       }
 
-      if (confirmedCount > 0) {
+      if (confirmedCount > 0 && greys.length > 0) {
         const rowMax = confirmedCount;
         const currentMax = maxCounts.get(letter);
 
